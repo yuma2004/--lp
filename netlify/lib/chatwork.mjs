@@ -4,6 +4,7 @@ const TARGET_FORM = "leaseback-contact";
 const NOTIFICATION_FIELDS = [
   "物件種別",
   "都道府県",
+  "市区町村",
   "売却希望時期",
   "お名前",
   "電話番号",
@@ -29,20 +30,29 @@ function sanitize(value, maxLength = 500) {
 }
 
 function toMentions(rawAccountIds) {
-  if (!rawAccountIds) return [];
-
-  return rawAccountIds
-    .split(",")
-    .map((id) => id.trim())
-    .filter((id) => /^\d+$/.test(id))
-    .map((id) => `[To:${id}]`);
+  const ids = typeof rawAccountIds === "string"
+    ? rawAccountIds.split(",").map((id) => id.trim()) : [];
+  if (!ids.length || ids.some((id) => !/^[1-9]\d*$/.test(id))) {
+    throw new Error("CHATWORK_TO_ACCOUNT_IDS must contain valid account IDs");
+  }
+  return [...new Set(ids)].map((id) => `[To:${id}] [pname:${id}]`);
 }
 
-export function buildChatworkMessage(data, toAccountIds = "") {
+function inquiryDate(createdAt) {
+  if (typeof createdAt !== "string" || !Number.isFinite(Date.parse(createdAt))) {
+    throw new Error("Submission created_at must be a valid timestamp");
+  }
+  const parts = new Intl.DateTimeFormat("en-GB", {
+    timeZone: "Asia/Tokyo", year: "numeric", month: "2-digit", day: "2-digit",
+    hour: "2-digit", minute: "2-digit", second: "2-digit", hourCycle: "h23",
+  }).formatToParts(new Date(createdAt));
+  const date = Object.fromEntries(parts.map(({type, value}) => [type, value]));
+  return `${date.year}/${date.month}/${date.day} ${date.hour}:${date.minute}:${date.second}（日本時間）`;
+}
+
+export function buildChatworkMessage(data, toAccountIds, createdAt) {
   const mentions = toMentions(toAccountIds);
-  const heading = mentions.length
-    ? `${mentions.join(" ")}\nフォームから新しいお問い合わせがありました。`
-    : "フォームから新しいお問い合わせがありました。";
+  const heading = `${mentions.join("\n")}\nフォームから新しいお問い合わせがありました。`;
 
   const details = NOTIFICATION_FIELDS.map((key) => {
     return `${key}：${sanitize(fieldValue(data, key))}`;
@@ -51,6 +61,7 @@ export function buildChatworkMessage(data, toAccountIds = "") {
   return [
     heading,
     "[info][title]リースバックLP｜新規お問い合わせ（自動通知）[/title]",
+    `問い合わせ日時：${inquiryDate(createdAt)}`,
     ...details,
     "[/info]",
   ].join("\n");
@@ -114,6 +125,7 @@ export async function notifySubmission(payload, {
   const message = buildChatworkMessage(
     data,
     env.CHATWORK_TO_ACCOUNT_IDS,
+    payload.created_at,
   );
 
   await postToChatwork({ token, roomId, message, fetchImpl, sleep });
