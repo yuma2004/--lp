@@ -99,13 +99,15 @@ test("旧LP経路はルートへ恒久転送し、旧ページは残さない", 
 });
 
 test("番号付きLPは独立した実体を持ち、本番と同じ受付・計測を使う", () => {
-  for (const version of [1, 2]) {
+  for (const version of [1, 2, 3]) {
     const html = read(`lp/${version}/index.html`);
     assert.match(html, /name="leaseback-contact"/);
     assert.match(html, /data-netlify="true"/);
     assert.match(html, /name="form-name" value="leaseback-contact"/);
     assert.match(html, /netlify-honeypot="bot-field"/);
-    assert.match(html, /data-success-url="\/thanks\.html"/);
+    const successUrl = version === 3 ? "/lp/3/thanks.html" : "/thanks.html";
+    assert.ok(html.includes(`data-success-url="${successUrl}"`));
+    assert.ok(html.includes(`action="${successUrl}"`));
     assert.ok(html.includes(`name="送信元" value="lp-${version}"`));
     assert.ok(html.includes(`name="送信ページ" value="/lp/${version}/"`));
     assert.match(html, /src="\.\/shared\/gtm\.js/);
@@ -117,6 +119,7 @@ test("番号付きLPは独立した実体を持ち、本番と同じ受付・計
     assert.doesNotMatch(read('_redirects'), new RegExp(`^/lp/${version}/? / 301!$`, 'm'));
   }
   assert.match(read('lp/2/index.html'), /reading-layout\.css/);
+  assert.match(read('lp/3/index.html'), /reading-layout\.css/);
   assert.doesNotMatch(read('lp/1/index.html'), /reading-layout\.css/);
 });
 
@@ -126,6 +129,7 @@ test("制作資料と作業ファイルはWeb公開から除外する", () => {
   for (const directory of ["design/", ".codex-remote-attachments/", "tests/", "integrations/", "tmp/", "output/"]) {
     assert.ok(excluded.has(directory), `${directory} must not be published`);
   }
+  assert.ok(excluded.has("LP_STRUCTURE.md"));
 });
 
 test("コンバージョンは本番フォーム送信直後の一度だけ許可する", () => {

@@ -1,23 +1,23 @@
 <!doctype html>
 <!--
-  LPバージョン: /lp/1/
+  LPバージョン: /lp/3/
   最終更新日: 2026-09-14（日本時間）
   更新内容:
-    2026-09-14: 都道府県を標準プルダウンに統一。同意の初期チェックを維持。
-    2026-09-10: 最終更新日・更新履歴のHTMLコメントを追加。
-    2026-09-10: 全本番LP共通のChatwork通知処理を修正。
-    2026-09-09: 当時の本番LPデザインを複製し、/lp/1/ として公開。
-                フォーム受付・Chatwork通知・広告計測を本番と同じ仕様に設定。
+    2026-09-14: /lp/2/ の構成・素材・受付処理を複製。
+                都道府県を標準プルダウンに統一し、同意を初期チェック済みに変更。
+                CTAを無料相談へ変更。フォーム下の電話案内・安心案内を削除。
+                PCでも冒頭・フォーム直前のCTA補足文を表示。
+                電話案内付きの専用サンクスページと送信元 lp-3 を設定。
 -->
 <html lang="ja">
   <head>
-    <script src="./shared/gtm.js?v=20260829"></script>
     <meta charset="utf-8" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, viewport-fit=cover"
     />
-    <title>イエトク！リースバック一括査定｜自宅を売っても住み続けられる</title>
+    <meta name="robots" content="noindex, nofollow, noarchive" />
+    <title>イエトク！リースバック一括査定</title>
     <link rel="icon" href="./shared/variant-b/images/logo-ietoku-mobile.webp" type="image/webp" />
     <meta
       name="description"
@@ -30,24 +30,21 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./shared/variant-b/mobile.css?v=20260829" />
+    <link rel="stylesheet" href="./assets/variant-b/overrides.css?v=20260905-1" />
+    <link
+      rel="stylesheet"
+      href="./assets/variant-b/fullscreen-desktop.css?v=20260905-6"
+    />
+    <link rel="stylesheet" href="./assets/variant-b/reading-layout.css?v=20260914" />
     <link
       rel="preload"
       as="image"
-      href="./shared/variant-b/images/hero-couple-house-mobile.webp"
+      href="./shared/variant-b/images/hero-couple-front-mobile-v2.webp"
       fetchpriority="high"
     />
+    <script src="./shared/gtm.js?v=20260829"></script>
   </head>
   <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript
-      ><iframe
-        src="https://www.googletagmanager.com/ns.html?id=GTM-KNK5T8S4"
-        height="0"
-        width="0"
-        style="display: none; visibility: hidden"
-      ></iframe
-    ></noscript>
-    <!-- End Google Tag Manager (noscript) -->
     <main class="lp">
       <section class="hero page" id="top">
         <header class="site-header">
@@ -63,47 +60,44 @@
             住まいと資産の未来をつなぐ<br />リースバック相談窓口
           </div>
         </header>
-        <div class="hero-visual">
-          <div class="hero-copy">
-            <p class="hero-kicker">
-              <span>自宅を売っても</span><strong>住み続けれる！</strong>
-            </p>
-            <h1>リースバック一括査定<br />最高額で自宅が売れる</h1>
-            <p class="hero-lead">
-              住宅ローン・老後資金・<br />相続のお悩みに。<br /><strong
-                >リースバック</strong
-              >という選択肢。
-            </p>
+        <div class="hero-content">
+          <div class="hero-visual">
+            <div class="hero-copy">
+              <p class="hero-kicker">
+                <span>自宅を売っても</span><strong>住み続けられる！</strong>
+              </p>
+              <h1>リースバック一括査定<br />最高額で自宅が売れる</h1>
+            </div>
           </div>
-        </div>
-        <div class="trust-row">
-          <div>
-            <span class="trust-icon icon-clock" aria-hidden="true"></span
-            ><b>最短即日査定</b><small>スピード対応</small>
+          <div class="trust-row">
+            <div>
+              <span class="trust-icon icon-clock" aria-hidden="true"></span
+              ><b>最短即日査定</b><small>スピード対応</small>
+            </div>
+            <div>
+              <span class="trust-icon icon-lock" aria-hidden="true"></span
+              ><b>秘密厳守</b><small>プライバシー保護</small>
+            </div>
+            <div>
+              <span class="trust-icon icon-japan" aria-hidden="true"></span
+              ><b>24時間受付</b><small>WEBでいつでも</small>
+            </div>
           </div>
-          <div>
-            <span class="trust-icon icon-lock" aria-hidden="true"></span
-            ><b>秘密厳守</b><small>プライバシー保護</small>
+          <div class="cta-block hero-cta-block">
+            <p>＼ お電話は1社のみ！最短即日査定 ／</p>
+            <a class="main-cta unified-cta" href="#final-inputs"
+              ><span class="cta-medal">簡単<br />30秒</span
+              ><strong>無料相談はこちら</strong><i>›</i></a
+            >
           </div>
-          <div>
-            <span class="trust-icon icon-japan" aria-hidden="true"></span
-            ><b>24時間受付</b><small>WEBでいつでも</small>
-          </div>
-        </div>
-        <div class="cta-block hero-cta-block">
-          <p>＼ 弁護士監修あり！最短即日回答！ ／</p>
-          <a class="main-cta unified-cta" href="#final-inputs"
-            ><span class="cta-medal">簡単<br />30秒</span
-            ><strong>無料査定はこちら</strong><i>›</i></a
+          <a class="phone-box" href="tel:05018094557"
+            ><span class="phone-symbol icon-phone" aria-hidden="true"></span
+            ><span
+              ><b>お電話でのご相談も受付中</b><strong>050-1809-4557</strong
+              ><small>受付時間 9:00〜18:00（年中無休）</small></span
+            ><em>相談無料</em></a
           >
         </div>
-        <a class="phone-box" href="tel:05018094557"
-          ><span class="phone-symbol icon-phone" aria-hidden="true"></span
-          ><span
-            ><b>お電話でのご相談も受付中</b><strong>050-1809-4557</strong
-            ><small>受付時間 9:00〜18:00（年中無休）</small></span
-          ><em>相談無料</em></a
-        >
       </section>
 
       <section class="worries page">
@@ -111,14 +105,17 @@
         <h2>お悩みはありませんか？</h2>
         <span class="gold-rule"></span>
         <figure class="review-visual worries-review-visual">
-          <img
-            src="./shared/variant-b/images/worries-review.jpg"
-            width="1100"
-            height="1100"
-            loading="lazy"
-            decoding="async"
-            alt="住宅ローンや老後資金について悩むご夫婦"
-          />
+          <picture>
+            <source media="(min-width: 900px)" srcset="./assets/variant-b/images/worries-couple-desktop-v2.webp" />
+            <img
+              src="./shared/variant-b/images/worries-review.jpg"
+              width="1100"
+              height="1100"
+              loading="lazy"
+              decoding="async"
+              alt="住宅ローンや老後資金について悩むご夫婦"
+            />
+          </picture>
         </figure>
         <div class="worry-grid">
           <article>
@@ -151,9 +148,9 @@
           </article>
         </div>
         <div class="section-cta cta-block">
-          <p>＼ 弁護士監修あり！最短即日回答！ ／</p>
+          <p>＼ お電話は1社のみ！最短即日査定 ／</p>
           <a class="unified-cta" href="#final-inputs"
-            ><span>簡単<br />30秒</span><strong>無料査定はこちら</strong><i>›</i></a
+            ><span>簡単<br />30秒</span><strong>無料相談はこちら</strong><i>›</i></a
           >
         </div>
       </section>
@@ -162,7 +159,7 @@
         <p class="number-strap">リースバックなら、</p>
         <h2>売却後もそのまま<br />住み続けられます</h2>
         <p class="intro">
-          リースバックは、住まいを売却したあとも、賃貸としてそのまま住み続けられるサービスです。
+          リースバックは、住まいを売却したあとも、賃貸としてそのまま住み続けられるサービスです。ご連絡窓口は1社にまとめ、複数の買取会社の査定条件を比較できます。
         </p>
         <div class="step-cards">
           <article>
@@ -170,7 +167,7 @@
             ><span class="sprite process-sprite p1"></span>
             <div>
               <h3>売却</h3>
-              <p>ご自宅を当社に売却します。</p>
+              <p>比較後に選んだ買取会社へご自宅を売却します。</p>
             </div>
           </article>
           <article>
@@ -186,7 +183,7 @@
             ><span class="sprite process-sprite p3"></span>
             <div>
               <h3>賃貸契約</h3>
-              <p>当社と賃貸借契約を結び、毎月家賃をお支払いいただきます。</p>
+              <p>売却先の買取会社と賃貸借契約を結び、毎月家賃をお支払いいただきます。</p>
             </div>
           </article>
           <article>
@@ -235,8 +232,10 @@
             ><span class="reason-art yen">¥0</span>
             <div>
               <h3>査定・相談は<br />完全<span>無料</span></h3>
-              <p>
-                査定からご相談・ご提案まで、すべて無料でご利用いただけます。費用は一切かかりません。
+              <p class="reason-copy-lines">
+                <span>査定からご相談・ご提案まで、</span>
+                <span>すべて無料でご利用いただけます。</span>
+                <span>費用は一切かかりません。</span>
               </p>
             </div>
           </article>
@@ -250,6 +249,55 @@
             </div>
           </article>
         </div>
+
+      </section>
+
+      <section
+        class="lawyer-supervision page"
+        id="lawyer-supervision"
+        aria-labelledby="lawyer-supervision-title"
+      >
+        <div class="lawyer-supervision__masthead">
+          <p class="lawyer-supervision__badge">弁護士による業務監修</p>
+          <h2 id="lawyer-supervision-title">
+            納得して選ぶために、<br /><strong>専門家の視点を。</strong>
+          </h2>
+          <p>
+            トモニア法律事務所の塚越
+            文也弁護士がリースバック業務を監修。一般的な法的観点から確認・助言を受け、仕組みや契約上の確認点をわかりやすくお伝えします。
+          </p>
+        </div>
+
+        <article class="lawyer-profile">
+          <div class="lawyer-profile__overview">
+            <figure class="lawyer-profile__photo">
+              <img
+                src="./assets/variant-b/images/lawyer-supervisor-wide.webp"
+                width="960"
+                height="540"
+                loading="lazy"
+                decoding="async"
+                alt="リースバック業務を監修する弁護士のプロフィール写真"
+              />
+              <figcaption>監修弁護士</figcaption>
+            </figure>
+            <div class="lawyer-profile__identity">
+              <p>トモニア法律事務所<br />代表弁護士</p>
+              <h3>塚越　文也</h3>
+              <p class="lawyer-profile__affiliation">第一東京弁護士会所属</p>
+            </div>
+          </div>
+          <div class="lawyer-profile__message">
+            <h3>専門家が監修する理由</h3>
+            <p>
+              リースバックは、売買契約と賃貸借契約をあわせて考える取引です。専門家の法的視点を取り入れ、メリットだけでなく契約前に確認したい点も、わかりやすくお伝えします。
+            </p>
+          </div>
+        </article>
+
+        <p class="lawyer-supervision__note">
+          ※監修は、リースバック業務への一般的な確認・助言を対象とします。個別のお客様に対する法律相談・法的助言ではありません。
+        </p>
       </section>
 
       <section class="comparison page">
@@ -275,17 +323,36 @@
           <div class="cell"><strong>○</strong><span>自由に使えます</span></div>
           <div class="cell label"><span class="compare-icon">年</span><b>年齢条件</b></div>
           <div class="cell featured">
-            <b>なし</b><span>年齢制限はありません</span>
+            <b>なし</b><span class="comparison-age-note">年齢制限はありません</span>
           </div>
-          <div class="cell"><b>なし</b><span>年齢制限はありません</span></div>
+          <div class="cell">
+            <b>なし</b><span class="comparison-age-note">年齢制限はありません</span>
+          </div>
           <div class="cell label"><span class="compare-icon">権</span><b>所有権</b></div>
-          <div class="cell featured"><span>売却後は当社が所有</span></div>
+          <div class="cell featured"><span>売却後は買取会社が所有</span></div>
           <div class="cell"><span>売却後は買主が所有</span></div>
           <div class="cell label"><span class="compare-icon">円</span><b>月々の支払い</b></div>
           <div class="cell featured"><span>家賃のお支払いがあります</span></div>
           <div class="cell"><b>なし</b></div>
         </div>
         <div class="point-box price-proof">
+          <div class="desktop-price-proof" role="img" aria-label="リースバック査定で最高額がわかる。東京都、築34年、4LDK。A社3,180万円、B社2,940万円、C社2,760万円。">
+            <p class="price-quote__title">リースバック査定で<br />最高額がわかる</p>
+            <p class="price-quote__property">東京都 ／ 築34年 ／ 4LDK</p>
+            <div class="price-quote__row price-quote__row--highest">
+              <span>A社</span>
+              <em>最高額</em>
+              <strong>3,180<small>万円</small></strong>
+            </div>
+            <div class="price-quote__row">
+              <span>B社</span>
+              <strong>2,940<small>万円</small></strong>
+            </div>
+            <div class="price-quote__row">
+              <span>C社</span>
+              <strong>2,760<small>万円</small></strong>
+            </div>
+          </div>
           <img
             src="./shared/variant-b/images/highest-price-review.png"
             width="900"
@@ -296,9 +363,9 @@
           />
         </div>
         <div class="comparison-cta cta-block">
-          <p>＼ 弁護士監修あり！最短即日回答！ ／</p>
+          <p>＼ お電話は1社のみ！最短即日査定 ／</p>
           <a class="faq-contact unified-cta" href="#final-inputs"
-            ><span>簡単<br />30秒</span><strong>無料査定はこちら</strong><i>›</i></a
+            ><span>簡単<br />30秒</span><strong>無料相談はこちら</strong><i>›</i></a
           >
         </div>
       </section>
@@ -421,69 +488,92 @@
             <span class="timeline-no">1</span>
             <div>
               <h3>無料相談</h3>
-              <p>
-                お電話またはフォームからお気軽にご相談ください。ご状況をお伺いし、仕組みやメリットをご説明します。
-              </p>
+              <p>お電話やフォームから、お気軽にご相談ください。</p>
             </div>
           </article>
           <article>
             <span class="timeline-no">2</span>
             <div>
               <h3>簡易査定</h3>
-              <p>
-                物件の基本情報をもとに、机上での簡易査定を行います。おおよその査定価格や可能性をご案内します。
-              </p>
+              <p>物件情報をもとに、おおよその価格を査定します。</p>
             </div>
           </article>
           <article>
             <span class="timeline-no">3</span>
             <div>
               <h3>訪問査定</h3>
-              <p>
-                専門スタッフがご自宅を訪問し、建物の状態や周辺環境などを確認のうえ、正確な査定を行います。
-              </p>
+              <p>専門スタッフが訪問し、物件を詳しく調査します。</p>
             </div>
           </article>
           <article>
             <span class="timeline-no">4</span>
             <div>
               <h3>条件提示</h3>
-              <p>
-                査定結果をもとに、買取価格や家賃、契約条件などをご提示します。ご不明点は丁寧にご説明します。
-              </p>
+              <p>査定結果をもとに、ご希望に沿った条件をご提示します。</p>
             </div>
           </article>
           <article>
             <span class="timeline-no">5</span>
             <div>
               <h3>契約・資金受取</h3>
-              <p>
-                ご契約の手続きを行い、売却代金をお受け取りいただきます。ご契約後もそのままご自宅に住めます。
-              </p>
+              <p>ご契約後、最短即日で資金をお受け取りいただけます。</p>
             </div>
           </article>
         </div>
-        <div class="staff-banner">
-          <div>
-            <h3>専門スタッフが<br />丁寧にご案内します</h3>
+        <div class="flow-support-row">
+          <div class="flow-contact">
             <p>
-              お客様に寄り添い、納得してご判断いただけるよう丁寧にご案内します。お気軽にご相談ください。
+              どんなご相談でも構いません。<br />
+              強引な営業は一切いたしませんので、安心してご相談ください。<br />
+              お客様の状況に合わせて、最適なご提案をいたします。
             </p>
+            <a href="tel:05018094557"><span aria-hidden="true">☎</span>050-1809-4557</a>
           </div>
-          <img
-            src="./shared/variant-b/images/staff-pair-mobile.webp"
-            width="1090"
-            height="516"
-            loading="lazy"
-            decoding="async"
-            alt="専門スタッフ"
-          />
+          <div class="staff-banner">
+            <div>
+              <h3>専門スタッフが<br />丁寧にご案内します</h3>
+              <p>
+                お客様に寄り添い、納得してご判断いただけるよう丁寧にご案内します。お気軽にご相談ください。
+              </p>
+            </div>
+            <figure class="staff-banner__portraits" aria-label="担当営業">
+              <img
+                src="./assets/variant-b/images/sales-miyazawa.webp"
+                width="560"
+                height="700"
+                loading="lazy"
+                decoding="async"
+                alt="担当営業の宮澤"
+              />
+              <img
+                src="./assets/variant-b/images/sales-iwase.webp"
+                width="560"
+                height="700"
+                loading="lazy"
+                decoding="async"
+                alt="担当営業の岩瀬"
+              />
+            </figure>
+          </div>
         </div>
       </section>
 
       <section class="faq page">
         <h2>よくあるご質問</h2>
         <span class="gold-rule"></span>
+        <div class="faq-side-actions">
+          <p>お客様からよくいただくご質問にお答えします。</p>
+          <a class="faq-side-phone" href="tel:05018094557">
+            <span class="icon-phone" aria-hidden="true"></span>
+            <span>
+              <strong>050-1809-4557</strong>
+              <small>受付時間 9:00〜18:00（年中無休）</small>
+            </span>
+          </a>
+          <a class="faq-side-cta" href="#final-inputs">
+            無料相談はこちら <span aria-hidden="true">›</span>
+          </a>
+        </div>
         <div class="faq-panel">
           <details open>
             <summary><span>Q</span>本当に住み続けられますか<i></i></summary>
@@ -505,7 +595,10 @@
           </details>
           <details>
             <summary>
-              <span>Q</span>住宅ローンが残っていても利用できますか<i></i>
+              <span>Q</span
+              ><b class="faq-question-text"
+                >住宅ローンが残っていても<br class="controlled-break" />利用できますか</b
+              ><i></i>
             </summary>
             <div class="answer">
               <span>A</span>
@@ -515,7 +608,12 @@
             </div>
           </details>
           <details>
-            <summary><span>Q</span>将来買い戻すことはできますか<i></i></summary>
+            <summary>
+              <span>Q</span
+              ><b class="faq-question-text"
+                >将来買い戻すことは<br class="controlled-break" />できますか</b
+              ><i></i>
+            </summary>
             <div class="answer">
               <span>A</span>
               <p>
@@ -525,7 +623,10 @@
           </details>
           <details>
             <summary>
-              <span>Q</span>リースバックの注意点は何ですか<i></i>
+              <span>Q</span
+              ><b class="faq-question-text"
+                >リースバックの<br class="controlled-break" />注意点は何ですか</b
+              ><i></i>
             </summary>
             <div class="answer">
               <span>A</span>
@@ -546,7 +647,12 @@
             </div>
           </details>
           <details>
-            <summary><span>Q</span>査定後に断っても大丈夫ですか<i></i></summary>
+            <summary>
+              <span>Q</span
+              ><b class="faq-question-text"
+                >査定後に断っても<br class="controlled-break" />大丈夫ですか</b
+              ><i></i>
+            </summary>
             <div class="answer">
               <span>A</span>
               <p>
@@ -562,8 +668,8 @@
           class="closing-form"
           name="leaseback-contact"
           method="POST"
-          action="/thanks.html"
-          data-success-url="/thanks.html"
+          action="/lp/3/thanks.html"
+          data-success-url="/lp/3/thanks.html"
           accept-charset="UTF-8"
           data-netlify="true"
           netlify-honeypot="bot-field"
@@ -575,8 +681,8 @@
             name="通知内容"
             value="リースバック無料条件確認フォームより、新しいお問い合わせがありました。下記内容をご確認のうえ、ご対応をお願いいたします。"
           />
-          <input type="hidden" name="送信元" value="lp-1" />
-          <input type="hidden" name="送信ページ" value="/lp/1/" />
+          <input type="hidden" name="送信元" value="lp-3" />
+          <input type="hidden" name="送信ページ" value="/lp/3/" />
           <p hidden>
             <label
               >この項目は入力しないでください
@@ -596,10 +702,31 @@
               >
               <span>確認しませんか</span>
             </h2>
-            <p>相談したからといって、<b>売却を決める必要はありません。</b></p>
+            <p>
+              相談したからといって、<b
+                >売却を決める必要は<br class="controlled-break" />ありません。</b
+              >
+            </p>
           </div>
 
           <div class="closing-price-proof price-proof">
+            <div class="desktop-price-proof" role="img" aria-label="リースバック査定で最高額がわかる。東京都、築34年、4LDK。A社3,180万円、B社2,940万円、C社2,760万円。">
+              <p class="price-quote__title">リースバック査定で<br />最高額がわかる</p>
+              <p class="price-quote__property">東京都 ／ 築34年 ／ 4LDK</p>
+              <div class="price-quote__row price-quote__row--highest">
+                <span>A社</span>
+                <em>最高額</em>
+                <strong>3,180<small>万円</small></strong>
+              </div>
+              <div class="price-quote__row">
+                <span>B社</span>
+                <strong>2,940<small>万円</small></strong>
+              </div>
+              <div class="price-quote__row">
+                <span>C社</span>
+                <strong>2,760<small>万円</small></strong>
+              </div>
+            </div>
             <img
               src="./shared/variant-b/images/highest-price-review.png"
               width="900"
@@ -611,17 +738,17 @@
           </div>
 
           <div class="closing-cta-block cta-block">
-            <p>＼ 弁護士監修あり！最短即日回答！ ／</p>
+            <p>＼ お電話は1社のみ！最短即日査定 ／</p>
             <a class="closing-cta unified-cta" href="#final-inputs">
               <span class="closing-medal">簡単<br />30秒</span>
-              <strong>無料査定はこちら</strong>
+              <strong>無料相談はこちら</strong>
               <i>›</i>
             </a>
           </div>
 
           <div class="closing-inputs" id="final-inputs">
             <div class="form-heading">
-              <span>無料査定フォーム</span>
+              <span>最短即日査定フォーム</span>
               <h3>ご自宅の査定価格をチェック</h3>
               <p>必要事項をご入力ください</p>
             </div>
@@ -713,42 +840,12 @@
               ></label
             >
             <button class="quick-submit closing-submit" type="submit">
-              無料査定を申し込む <i>›</i>
+              入力した内容で相談する <i>›</i>
             </button>
             <p class="form-status" aria-live="polite" data-form-status></p>
           </div>
+
         </form>
-
-        <a class="closing-phone" href="tel:05018094557"
-          ><span>☎</span
-          ><span
-            ><small>お電話でのご相談もお気軽にどうぞ</small
-            ><strong>050-1809-4557</strong
-            ><em>受付時間 9:00〜18:00（年中無休）</em></span
-          ><b>相談無料</b></a
-        >
-
-        <div class="closing-trust">
-          <div>
-            <span class="closing-trust-lock" aria-hidden="true"></span>
-            <p>
-              <b>秘密厳守</b><small>プライバシーを<br />厳守します</small>
-            </p>
-          </div>
-          <div>
-            <span>¥0</span>
-            <p>
-              <b>相談無料</b><small>費用は一切<br />かかりません</small>
-            </p>
-          </div>
-          <div>
-            <span>♥</span>
-            <p>
-              <b>しつこい<br />営業なし</b
-              ><small>安心して<br />ご相談ください</small>
-            </p>
-          </div>
-        </div>
 
         <footer class="company-footer">
           <img
@@ -780,7 +877,7 @@
       </section>
     </main>
     <script src="./shared/form-submit.js?v=20260829"></script>
-    <script src="./shared/affilicode-tracking.js?v=20260829"></script>
-    <script src="./shared/variant-b/app.js?v=20260829"></script>
+    <script src="./shared/variant-b/app.js?v=20260904-1"></script>
+    <script src="./shared/affilicode-tracking.js?v=20260914"></script>
   </body>
 </html>

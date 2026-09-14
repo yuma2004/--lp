@@ -1,0 +1,111 @@
+:root {
+  --ink: #061733;
+  --muted: #536070;
+  --blue: #143b8a;
+  --orange: #e94916;
+  --line: rgba(6, 23, 51, 0.14);
+  --paper: #fffaf0;
+  --white: #fffefb;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100dvh;
+  margin: 0;
+  background:
+    repeating-linear-gradient(135deg, rgba(6, 23, 51, 0.025) 0 1px, transparent 1px 8px),
+    var(--paper);
+  color: var(--ink);
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
+  line-height: 1.8;
+}
+
+.thanks-shell {
+  display: grid;
+  min-height: 100dvh;
+  place-items: center;
+  padding: 32px 16px;
+}
+
+.thanks-card {
+  width: min(100%, 760px);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 254, 251, 0.94);
+  padding: clamp(28px, 5vw, 54px);
+  text-align: center;
+  box-shadow: 0 18px 40px rgba(6, 23, 51, 0.08);
+}
+
+.thanks-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 34px;
+  margin-bottom: 18px;
+  border-radius: 999px;
+  background: #fff2e8;
+  color: var(--orange);
+  padding: 5px 16px;
+  font-size: 0.92rem;
+  font-weight: 900;
+}
+
+.thanks-title {
+  margin: 0;
+  font-family: "Noto Serif JP", "Yu Mincho", "Hiragino Mincho ProN", serif;
+  font-size: clamp(32px, 6vw, 52px);
+  font-weight: 900;
+  line-height: 1.28;
+}
+
+.thanks-lead {
+  margin: 20px auto 0;
+  max-width: 560px;
+  color: var(--muted);
+  font-size: clamp(1rem, 2vw, 1.12rem);
+  font-weight: 700;
+}
+
+.thanks-note {
+  margin: 28px auto 0;
+  max-width: 560px;
+  border-left: 4px solid var(--orange);
+  background: #fff;
+  padding: 16px 18px;
+  color: var(--ink);
+  text-align: left;
+  font-size: 0.95rem;
+}
+
+.thanks-actions {
+  margin-top: 30px;
+}
+
+.thanks-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  border-radius: 999px;
+  background: var(--orange);
+  color: #fff;
+  padding: 12px 28px;
+  font-weight: 900;
+  text-decoration: none;
+  box-shadow: 0 10px 24px rgba(233, 73, 22, 0.2);
+}
+
+.thanks-footer {
+  margin-top: 26px;
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
+.thanks-footer a {
+  color: var(--blue);
+  font-weight: 700;
+}

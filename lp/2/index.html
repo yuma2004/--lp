@@ -1,8 +1,9 @@
 <!doctype html>
 <!--
   LPバージョン: /lp/2/
-  最終更新日: 2026-09-10（日本時間）
+  最終更新日: 2026-09-14（日本時間）
   更新内容:
+    2026-09-14: 都道府県を標準プルダウンに統一。同意を初期チェック済みに変更。
     2026-09-10: 最終更新日・更新履歴のHTMLコメントを追加。
     2026-09-10: 全本番LP共通のChatwork通知処理を修正。
     2026-09-09: 最新の調整内容をまとめ、/lp/2/ として公開。
@@ -764,7 +765,7 @@
             >
             <label
               ><b><span>都道府県</span><small>必須</small></b
-              ><select name="都道府県" required>
+              ><select name="都道府県" required data-native-prefecture>
                 <option value="">選択してください</option>
                 <option>東京都</option>
                 <option>神奈川県</option>
@@ -831,6 +832,7 @@
                 type="checkbox"
                 name="同意状況"
                 value="同意済み"
+                checked
                 required
               /><span
                 ><a href="/privacy-policy.html" target="_blank" rel="noopener"

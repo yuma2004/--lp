@@ -5,6 +5,7 @@
 /_redirects / 404!
 /README.md / 404!
 /FORM_SETUP.md / 404!
+/LP_STRUCTURE.md / 404!
 /netlify.toml / 404!
 /netlify/* / 404!
 
@@ -18,3 +19,4 @@
 # Numbered live LP revisions.
 /lp/1/index.html /lp/1/ 301!
 /lp/2/index.html /lp/2/ 301!
+/lp/3/index.html /lp/3/ 301!

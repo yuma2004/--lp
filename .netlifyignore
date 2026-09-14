@@ -14,6 +14,7 @@ sites-test-backup/
 tests/
 README.md
 FORM_SETUP.md
+LP_STRUCTURE.md
 integrations/
 tmp/
 output/
