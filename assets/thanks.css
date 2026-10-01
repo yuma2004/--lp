@@ -109,3 +109,17 @@ body {
   color: var(--blue);
   font-weight: 700;
 }
+
+.thanks-contact { text-align: center; }
+.thanks-contact p { margin: 0; }
+.thanks-phone {
+  display: inline-block;
+  margin: 8px 0;
+  color: var(--orange);
+  font-size: clamp(26px, 6vw, 40px);
+  font-weight: 900;
+  line-height: 1.4;
+  white-space: nowrap;
+  text-underline-offset: 5px;
+}
+.thanks-hours { font-size: 0.85rem; }
