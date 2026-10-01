@@ -106,6 +106,8 @@ body {
 }
 
 .thanks-footer a {
+  display: inline-block;
+  white-space: nowrap;
   color: var(--blue);
   font-weight: 700;
 }
